@@ -8,7 +8,11 @@ public class MoveAtPlayer : MonoBehaviour
     [SerializeField] float moveSpeed = 20f;
 
 
+    void Awake()
+    {
+        gameObject.SetActive(false);
 
+    }
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

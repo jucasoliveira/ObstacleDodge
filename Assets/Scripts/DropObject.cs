@@ -6,6 +6,12 @@ public class DropObject : MonoBehaviour
     [SerializeField] float dropDelay = 2f;
     MeshRenderer meshRenderer;
     Rigidbody rb;
+
+    void Awake()
+    {
+        gameObject.SetActive(false);
+
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
