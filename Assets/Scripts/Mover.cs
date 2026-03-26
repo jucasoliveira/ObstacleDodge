@@ -15,6 +15,19 @@ public class Mover : MonoBehaviour
     private float fixedY;
 
 
+    void MovePlayer()
+    {
+        Vector2 input = moveAction.ReadValue<Vector2>();
+        moveInput = new Vector3(input.x, 0f, input.y);
+        moveVelocity = moveInput * Time.deltaTime * moveSpeed;
+
+        controller.Move(moveVelocity);
+
+        Vector3 pos = transform.position;
+        pos.y = fixedY;
+        transform.position = pos;
+    }
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -31,16 +44,9 @@ public class Mover : MonoBehaviour
 
     void Update()
     {
-        Vector2 input = moveAction.ReadValue<Vector2>();
-        moveInput = new Vector3(input.x, 0f, input.y);
-        moveVelocity = moveInput * Time.deltaTime * moveSpeed;
-
-        controller.Move(moveVelocity);
-
-        Vector3 pos = transform.position;
-        pos.y = fixedY;
-        transform.position = pos;
+        MovePlayer();
     }
+
 
     void OnDestroy()
     {
