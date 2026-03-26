@@ -48,6 +48,15 @@ public class Mover : MonoBehaviour
     }
 
 
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        ObjectHit objectHit = hit.gameObject.GetComponent<ObjectHit>();
+        if (objectHit != null)
+        {
+            objectHit.HandleHit();
+        }
+    }
+
     void OnDestroy()
     {
         moveAction?.Disable();

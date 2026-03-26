@@ -448,9 +448,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spinner
   spinSpeed: 100
-  randomizeStart: 1
-  randomizeDirection: 1
-  randomStartRange: 360
+  xAngle: 3.61
+  yAngle: 0
+  zAngle: 0
 --- !u!114 &284871837
 MonoBehaviour:
   m_ObjectHideFlags: 0
