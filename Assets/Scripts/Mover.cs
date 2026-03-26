@@ -1,14 +1,19 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Mover : MonoBehaviour
 {
 
+    [SerializeField] float moveSpeed = 10f;
+
+
     private CharacterController controller;
     private Vector3 moveInput;
     private Vector3 moveVelocity;
     private InputAction moveAction;
     private float fixedY;
+
 
     void Start()
     {
@@ -28,7 +33,7 @@ public class Mover : MonoBehaviour
     {
         Vector2 input = moveAction.ReadValue<Vector2>();
         moveInput = new Vector3(input.x, 0f, input.y);
-        moveVelocity = moveInput * Time.deltaTime * 10f;
+        moveVelocity = moveInput * Time.deltaTime * moveSpeed;
 
         controller.Move(moveVelocity);
 
