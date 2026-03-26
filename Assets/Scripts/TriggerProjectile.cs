@@ -4,16 +4,13 @@ using UnityEngine;
 public class TriggerProjectile : MonoBehaviour
 {
 
-    [SerializeField] private List<GameObject> projectile;
+    [SerializeField] GameObject projectile;
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            foreach (GameObject proj in projectile)
-            {
-                proj.SetActive(true);
-            }
+            projectile.SetActive(true);
             Destroy(gameObject);
         }
     }
